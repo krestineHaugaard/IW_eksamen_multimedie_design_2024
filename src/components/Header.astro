@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import NavBar from "./NavBar.astro";
+import { Image } from "astro:assets";
+import trap from "../assets/trap.svg"
 ---
 
 <header>
@@ -8,25 +10,31 @@ import NavBar from "./NavBar.astro";
     <section class="navigation_section">
         <NavBar/>
     </section>
+    <Image src={trap} alt="Invisible Walls logo" class="header_image"/>
     
 </header>
 
 <style>
 
     header{
-        background: linear-gradient(var(--iw-color-orange), var(--iw-color-orange), var(--iw-color-cream));
+        background: linear-gradient(var(--iw-color-orange), var(--iw-color-cream));
         display:grid;
-        grid-template-columns: 1fr 6fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .navigation_section{
         background-color: var(--iw-color-white);
-        grid-column: 2;
-        margin-block: 25px;
+        grid-column: 2 / span 6;
+        margin-top: 25px;
         padding: 25px;
         border-radius: 5px;
         box-shadow: -4px 2px 0px 8px var(--iw-color-blue);
     }
 
+    .header_image{
+        grid-column: 7 / span 2;
+        margin-top: -4%;
+        
+    }
 
 </style>

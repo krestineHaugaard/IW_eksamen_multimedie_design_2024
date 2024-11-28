@@ -1,22 +1,27 @@
 ---
 import "../styles/global.css";
+import FooterLogoBar from "./FooterLogoBar.astro";
+import FooterIconBar from "./FooterIconBar.astro";
+import { Image } from "astro:assets";
+import footerGroup from "../assets/footer_group.svg"
 ---
 
 <footer>
 
     <section class="footer_section">
         <p>A PROUD PART OF THE AMPLIFIER GAME INVEST AND THE EMBRACER FAMILY</p>
-        <div class="flex"></div>
-        <div class="flex"></div>
+        <FooterLogoBar/>
+        <FooterIconBar/>
         <div><p>Frederiksberggade 28, 2.th</p><p>1459 Copenhagen K</p><p>Denmark</p></div>
         <div class="flex"><p>©2022 by Invisible Walls</p><p>info@invisiblewalls.co</p><a href="/privacy_policy/">Privacy Policy</a></div>
     </section>
+    <Image src={footerGroup} alt="Invisible Walls logo" class="footer_image"/>
 
 </footer>
 
 <style>
     footer{
-        background: linear-gradient(var(--iw-color-cream), var(--iw-color-blue), var(--iw-color-blue));
+        background: linear-gradient(var(--iw-color-cream), var(--iw-color-blue), var(--iw-color-blue), var(--iw-color-blue), var(--iw-color-blue));
         display:grid;
         grid-template-columns: 1fr 6fr 1fr;
     }
@@ -30,6 +35,10 @@ import "../styles/global.css";
         box-shadow: 4px 2px 0px 8px var(--iw-color-orange);
     }
 
+    .footer_image{
+        grid-column: 1 / span 3;
+    }
+
     p{
         text-align: center;
     }
@@ -38,4 +47,5 @@ import "../styles/global.css";
         display:flex;
         justify-content:space-evenly
     }
+
 </style>

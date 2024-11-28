@@ -1,8 +1,11 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import smallLogo from "../assets/small_logo_dark_text.svg"
 ---
 
 <div class="nav_links">
+    <a href="/"><Image src={smallLogo} alt="Invisible Walls logo"/></a>
     <a href="/iw_originals/">IW Originals</a>
     <a href="/iw_studio/">IW Studio</a>
     <a href="/blog/">Blog</a>
