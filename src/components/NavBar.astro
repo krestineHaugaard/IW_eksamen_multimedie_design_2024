@@ -2,8 +2,34 @@
 import "../styles/global.css";
 ---
 
-
+<div class="nav_links">
+    <a href="/iw_originals/">IW Originals</a>
+    <a href="/iw_studio/">IW Studio</a>
+    <a href="/blog/">Blog</a>
+    <a href="/iw_prelude/">IW Prelude</a>
+    <a href="/the_team">The Team</a>
+</div>
 
 <style>
+
+.nav_links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    color: var(--iw-color-orange);
+}
 
 </style>
