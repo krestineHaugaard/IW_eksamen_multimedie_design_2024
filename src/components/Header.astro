@@ -19,14 +19,15 @@ import trap from "../assets/trap.svg"
     header{
         background: linear-gradient(var(--iw-color-orange), var(--iw-color-cream));
         display:grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(8, 1fr);
     }
 
     .navigation_section{
         background-color: var(--iw-color-white);
-        grid-column: 2 / span 6;
+        grid-column: 2 / 8;
         margin-top: 25px;
-        padding: 25px;
+        padding-block: 15px;
+        padding-inline: 30px;
         border-radius: 5px;
         box-shadow: -4px 2px 0px 8px var(--iw-color-blue);
     }

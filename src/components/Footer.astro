@@ -3,11 +3,13 @@ import "../styles/global.css";
 import FooterLogoBar from "./FooterLogoBar.astro";
 import FooterIconBar from "./FooterIconBar.astro";
 import { Image } from "astro:assets";
+import chickenStanding from "../assets/chicken_1.svg"
+import chickenRunning from "../assets/chicken_2.svg"
 import footerGroup from "../assets/footer_group.svg"
 ---
 
 <footer>
-
+    <Image src={chickenStanding} alt="Invisible Walls logo" class="chicken_standing"/>
     <section class="footer_section">
         <p>A PROUD PART OF THE AMPLIFIER GAME INVEST AND THE EMBRACER FAMILY</p>
         <FooterLogoBar/>
@@ -15,6 +17,7 @@ import footerGroup from "../assets/footer_group.svg"
         <div><p>Frederiksberggade 28, 2.th</p><p>1459 Copenhagen K</p><p>Denmark</p></div>
         <div class="flex"><p>©2022 by Invisible Walls</p><p>info@invisiblewalls.co</p><a href="/privacy_policy/">Privacy Policy</a></div>
     </section>
+    <Image src={chickenRunning} alt="Invisible Walls logo" class="chicken_running"/>
     <Image src={footerGroup} alt="Invisible Walls logo" class="footer_image"/>
 
 </footer>
@@ -23,20 +26,33 @@ import footerGroup from "../assets/footer_group.svg"
     footer{
         background: linear-gradient(var(--iw-color-cream), var(--iw-color-blue), var(--iw-color-blue), var(--iw-color-blue), var(--iw-color-blue));
         display:grid;
-        grid-template-columns: 1fr 6fr 1fr;
+        grid-template-columns: repeat(8, 1fr);
     }
 
     .footer_section{
         background-color: var(--iw-color-white);
-        grid-column: 2;
+        grid-column: 2 / 8;
         margin-block: 25px;
         padding: 25px;
         border-radius: 5px;
         box-shadow: 4px 2px 0px 8px var(--iw-color-orange);
     }
 
+    .chicken_standing{
+        grid-column: 2;
+        margin-bottom: -15%;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .chicken_running{
+        grid-column: 7;
+        margin-top: -80%;
+        width: 80%;
+    }
+
     .footer_image{
-        grid-column: 1 / span 3;
+        grid-column: 1 / 9;
     }
 
     p{
