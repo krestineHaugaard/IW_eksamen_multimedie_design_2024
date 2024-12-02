@@ -10,20 +10,20 @@ import trap from "../assets/trap.svg"
     <section class="navigation_section">
         <NavBar/>
     </section>
-    <Image src={trap} alt="Invisible Walls logo" class="header_image"/>
+    <Image src={trap} alt="A trap with empty food cans" class="header_image"/>
     
 </header>
 
 <style>
 
     header{
-        background: linear-gradient(var(--iw-color-orange), var(--iw-color-cream));
+        background: linear-gradient(var(--iw-color-orange), var(--background-color));
         display:grid;
         grid-template-columns: repeat(8, 1fr);
     }
 
     .navigation_section{
-        background-color: var(--iw-color-white);
+        background-color: var(--section-color);
         grid-column: 2 / 8;
         margin-top: 25px;
         padding-block: 15px;

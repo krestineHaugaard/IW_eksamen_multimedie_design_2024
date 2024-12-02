@@ -1,12 +1,14 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import smallLogo from "../assets/small_logo_dark_text.svg"
+import smallLogoDark from "../assets/small_logo_dark_text.svg"
+import smallLogoLight from "../assets/small_logo_light_text.svg"
 import LightDarkModeButton from "./LightDarkModeButton.astro";
 ---
 
 <div class="nav_links">
-    <a href="/"><Image src={smallLogo} alt="Invisible Walls logo"/></a>
+    <a href="/" class="small_logo_dark"><Image src={smallLogoDark} alt="Invisible Walls logo" /></a>
+    <a href="/" class="small_logo_light"><Image src={smallLogoLight} alt="Invisible Walls logo" /></a>
     <a href="/iw_originals" class="iw_originals">IW Originals</a>
     <a href="/iw_studio" class="iw_studio">IW Studio</a>
     <a href="/blog" class="blog">Blog</a>
@@ -40,8 +42,21 @@ a:hover{
 .active{
     text-decoration: underline;
     text-decoration-thickness: 2px;
-    color: var(--iw-color-black);
+    color: var(--text-color);
 }
+
+
+.small_logo_light{
+        display: none;
+    }
+
+    :global(.dark) .small_logo_light{
+        display: flex;
+    }
+
+    :global(.dark) .small_logo_dark{
+        display: none;
+    }
 
 </style>
 

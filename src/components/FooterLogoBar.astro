@@ -7,11 +7,11 @@ import amplifierLogoBlack from "../assets/amplifier_black.svg";
 import amplifierLogoWhite from "../assets/amplifier_white.svg";
 ---
 
-<section>
+<section class="light_logos">
     <a href="https://www.amplifiergameinvest.com/"><Image src={amplifierLogoWhite} alt="Amplifier logo"/></a>
     <a href="https://embracer.com/"><Image src={embracerLogoWhite} alt="Embracer logo"/></a>
 </section>
-<section>
+<section class="dark_logos">
      <a href="https://www.amplifiergameinvest.com/"><Image src={amplifierLogoBlack} alt="Amplifier logo"/></a>
      <a href="https://embracer.com/"><Image src={embracerLogoBlack} alt="Embracer logo"/></a>
 </section>
@@ -29,5 +29,18 @@ import amplifierLogoWhite from "../assets/amplifier_white.svg";
         width: 20%;
         margin: 20px;
     }
+
+    .light_logos{
+        display: none;
+    }
+
+    :global(.dark) .light_logos{
+        display: flex;
+    }
+
+    :global(.dark) .dark_logos{
+        display: none;
+    }
+
     
 </style>
