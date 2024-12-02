@@ -46,14 +46,14 @@
   --space-3xl: clamp(5.25rem, 4.95rem + 1.5vw, 6.75rem);
 }
 
-:root[data-theme="light"] {
+html {
   --background-color: var(--iw-color-cream);
   --section-color: var(--iw-color-white);
   --text-color: var(--iw-color-black);
   --icon-color: var(--iw-color-black);
 }
 
-:root[data-theme="dark"] {
+html.dark {
   --background-color: var(--iw-color-black);
   --section-color: var(--iw-color-black);
   --text-color: var(--iw-color-white);
@@ -65,7 +65,7 @@
 }
 
 body {
-  background-color: var(--iw-color-cream);
+  background-color: var(--background-color);
 }
 
 h1 {

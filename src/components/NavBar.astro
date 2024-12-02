@@ -2,15 +2,17 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import smallLogo from "../assets/small_logo_dark_text.svg"
+import LightDarkModeButton from "./LightDarkModeButton.astro";
 ---
 
 <div class="nav_links">
     <a href="/"><Image src={smallLogo} alt="Invisible Walls logo"/></a>
-    <a href="/iw_originals/">IW Originals</a>
-    <a href="/iw_studio/">IW Studio</a>
-    <a href="/blog/">Blog</a>
-    <a href="/iw_prelude/">IW Prelude</a>
-    <a href="/the_team">The Team</a>
+    <a href="/iw_originals" class="iw_originals">IW Originals</a>
+    <a href="/iw_studio" class="iw_studio">IW Studio</a>
+    <a href="/blog" class="blog">Blog</a>
+    <a href="/iw_prelude" class="iw_prelude">IW Prelude</a>
+    <a href="/the_team" class="the_team">The Team</a>
+    <LightDarkModeButton/>
 </div>
 
 <style>
@@ -31,8 +33,20 @@ a{
 
 a:hover{
     text-decoration: underline;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
     color: var(--iw-color-orange);
 }
 
+.active{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: var(--iw-color-black);
+}
+
 </style>
+
+<script>
+    const path = location.pathname.replace("/", "");
+    document.querySelector(`.${path}`).classList.add("active");
+    
+</script>

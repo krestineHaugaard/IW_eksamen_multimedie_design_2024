@@ -1,13 +1,33 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import embracerLogoWhite from "../assets/embracer-logo-white.svg";
+import embracerLogoBlack from "../assets/embracer-logo-black.svg";
+import amplifierLogoBlack from "../assets/amplifier_black.svg";
+import amplifierLogoWhite from "../assets/amplifier_white.svg";
 ---
 
 <section>
-    <div></div>
-    <div></div>
+    <a href="https://www.amplifiergameinvest.com/"><Image src={amplifierLogoWhite} alt="Amplifier logo"/></a>
+    <a href="https://embracer.com/"><Image src={embracerLogoWhite} alt="Embracer logo"/></a>
+</section>
+<section>
+     <a href="https://www.amplifiergameinvest.com/"><Image src={amplifierLogoBlack} alt="Amplifier logo"/></a>
+     <a href="https://embracer.com/"><Image src={embracerLogoBlack} alt="Embracer logo"/></a>
 </section>
 
 <style>
+
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 20px;
+    }
+
+    a{
+        width: 20%;
+        margin: 20px;
+    }
     
 </style>
