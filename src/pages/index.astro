@@ -7,6 +7,8 @@ import kimFighting from "../assets/kim_fight_01.svg";
 import maryFighting from "../assets/mary_fight_02.svg";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import HomePageSectionOrange from "../components/HomePageSectionOrange.astro";
+import HomePageSectionBlue from "../components/HomePageSectionBlue.astro";
 ---
 
 <Layout title="Invisible Walls">
@@ -21,6 +23,8 @@ import Button from "../components/Button.astro";
         </div>
         <Image src={maryFighting} alt="game character mary" class="mary"/>
     </section>
+    <HomePageSectionOrange/>
+    <HomePageSectionBlue/>
 
 </Layout>
 <style>
@@ -52,7 +56,7 @@ import Button from "../components/Button.astro";
     .mary{
         grid-column: 8/10;
         grid-row: 2;
-        margin-top: -20%;
+        margin-top: -80%;
         width: 110%;
     }
 

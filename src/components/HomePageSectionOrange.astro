@@ -1,9 +1,98 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import neighborsWarfare from "../assets/neighbors_suburban_warfare.svg";
+import Button from "./Button.astro";
 ---
 
-
+<section class="diagonal">
+    <div class="grid">
+        <Image src={neighborsWarfare} alt="Image from Neighbors: Suburban Warfare" class="image_content"/>
+        <div class="text_content">
+        <h2>IW ORIGINALS</h2>
+        <p>Invisible Walls originals bring you outstanding social strategy games. Games that cater not to reflexes alone, but to great social interactions and which are focused on a being as fun to watch as they are to play.</p>
+        <Button btnlink="/iw_originals" btntext="see our originals" />
+        </div>
+    </div>
+</section>
 
 <style>
+
+.diagonal{
+    position: relative;
+    /* Hjælper med at holde vores ::after contained i vores section, så hvis der 
+    ligges noget andet vil z-index på -1 ikke få vores ::after til at forsvinde om bag det hele */
+    isolation: isolate;
+    padding-block: var(--space-2xl);
+    margin-block: 4%;
+}
+
+.diagonal::before{
+    content: '';
+    background-color: var(--iw-color-blue);
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    margin-top: -4.5%;
+    margin-bottom: 5%;
+}
+
+.diagonal::after{
+    content: '';
+    background-color: var(--section-color);
+    position: absolute;
+    z-index: -1;
+    /* inset er en kort betegnelse for left, right, top og bottom, som bruges til at placere elementer der har position absolute */
+    inset: 0;
+    transform: skewY(5deg);
+    border-block: 10px solid var(--iw-color-orange);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap:5%;
+}
+
+.image_content{
+    grid-column: 2/3;
+    margin-top: -20%;
+    width: 120%;
+}
+
+.text_content{
+    grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+@media (max-width: 800px) {
+    .grid{
+    display: grid;
+    grid-template-columns: 2% 8fr 2%;
+    justify-items: center;
+    align-items: center;
+    gap:5%;
+}
+
+.image_content{
+    grid-column: 2/3;
+    margin-top: -10%;
+    width: 90%;
+}
+
+.text_content{
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+}
+
 
 </style>

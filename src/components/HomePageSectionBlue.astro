@@ -1,9 +1,100 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import johnDillermand from "../assets/john_dillermand.jpg";
+import Button from "./Button.astro";
 ---
 
-
+<section class="diagonal">
+    <div class="grid">
+        <div class="text_content">
+        <h2>IW STUDIO</h2>
+        <p>At IW Studio we work with external IPs. As a team we can offer years of experience making games, working with AR and VR and other interactive experiences. We offer a wide range of fine-tuned skills spanning world building, gamification, visual effects, programming and much more.</p>
+        <Button btnlink="/iw_studio" btntext="work with us" />
+        </div>
+        <Image src={johnDillermand} alt="Image from John Dillermand" class="image_content"/>
+    </div>
+</section>
 
 <style>
+
+.diagonal{
+    position: relative;
+    /* Hjælper med at holde vores ::after contained i vores section, så hvis der 
+    ligges noget andet vil z-index på -1 ikke få vores ::after til at forsvinde om bag det hele */
+    isolation: isolate;
+    padding-block: var(--space-2xl);
+    margin-block: 8.5%;
+}
+
+.diagonal::before{
+    content: '';
+    background-color: var(--iw-color-orange);
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    margin-bottom: -4.5%;
+    margin-top: 5%;
+}
+
+.diagonal::after{
+    content: '';
+    background-color: var(--section-color);
+    position: absolute;
+    z-index: -1;
+    /* inset er en kort betegnelse for left, right, top og bottom, som bruges til at placere elementer der har position absolute */
+    inset: 0;
+    transform: skewY(-5deg);
+    border-block: 10px solid var(--iw-color-blue);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap:5%;
+}
+
+.image_content{
+    grid-column: 3/4;
+    margin-top: -20%;
+    width: 120%;
+    padding-bottom: -10%;
+}
+
+.text_content{
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+@media (max-width: 800px) {
+    .grid{
+    display: grid;
+    grid-template-columns: 2% 8fr 2%;
+    justify-items: center;
+    align-items: center;
+    gap:5%;
+}
+
+.image_content{
+    grid-column: 2/3;
+    margin-top: -5%;
+    width: 90%;
+    order: -1;
+}
+
+.text_content{
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+}
+
 
 </style>
