@@ -11,6 +11,11 @@ import Footer from "../components/Footer.astro";
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
+		<!-- Jeg har valgt at indrage denne linje kode for at ungå 
+		 at min side dukker op når man søger på Invisble Walls. 
+		 Så længe mit website er i udviklings stadiet og ikke officielt 
+		 er Invisible Walls hjemme, skal den ikke være tilgængelig for alle-->
+		<meta name="robots" content="noindex, nofollow">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon_iw.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
