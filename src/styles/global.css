@@ -121,3 +121,13 @@ li {
   margin-bottom: var(--space-m);
   margin-top: var(--space-s);
 }
+
+li::marker {
+  color: var(--iw-color-orange);
+  font-size: var(--text-1);
+  font-weight: 700;
+}
+
+.orange {
+  color: var(--iw-color-orange);
+}
