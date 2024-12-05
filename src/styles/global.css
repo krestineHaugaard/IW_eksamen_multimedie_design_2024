@@ -108,7 +108,7 @@ h4 {
   font-style: normal;
   text-shadow: 2px 2px var(--iw-color-orange);
   letter-spacing: 2px;
-  margin-block: var(--space-m);
+  margin-top: var(--space-s);
 }
 
 p,

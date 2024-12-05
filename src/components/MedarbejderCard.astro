@@ -1,9 +1,40 @@
 ---
 import "../styles/global.css";
+const {data} = Astro.props;
+console.log(data);
 ---
 
-
+<article>
+    <img src=`${data.image}` alt={data.name}/>
+    <h4>{data.name}</h4>
+    <p>{data.profession}</p>
+</article>
 
 <style>
+    article{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    h4{
+        text-align: center;
+    }
+
+    img{
+        border-radius: 1000%;
+        width: 200px;
+    }
+
+    p{
+        margin-top: var(--space-xs);
+        margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 800px) {
+        img{
+        width: 150px;
+    }
+}
 
 </style>

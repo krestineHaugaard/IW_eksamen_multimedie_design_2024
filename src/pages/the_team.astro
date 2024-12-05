@@ -1,11 +1,81 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import MedarbejderCard from "../components/MedarbejderCard.astro";
+const data = await fetch ("https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/staff", 
+{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1em1tbHdwZnVsdmJjaGh6b3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTMyNjgsImV4cCI6MjA0ODM4OTI2OH0.XvH4JaE3egPbv5FstR2ntPAX94NksXLAZoKiN1t-wvw"
+    },
+}
+).then((res)=>res.json());
 ---
 
 <Layout>
-
+    <section class="grid">
+       <h1>WHO ARE WE?</h1>
+       <p class="number">{data.length}</p> 
+       <p class="big_text">AWESOME PEOPLE...</p>
+       <p class="small_text">... who design, create and produce great video games focused on social interactions between people!</p>
+    </section>
+    <section class="grid">
+        {data.map((ansat) => {return <MedarbejderCard data={ansat}/>;
+        })
+        }
+    </section>
 </Layout>
 <style>
 
+    h1{
+        grid-column: 1/4;
+        margin-block: var(--space-xs);
+    }
+
+    .number{
+        font-size: 100px;
+        font-family: "Atma", system-ui;
+        font-weight: 500;
+        font-style: normal;
+        color: var(--iw-color-orange);
+        text-shadow: 3px 3px var(--iw-color-blue);
+        grid-column: 1/4;
+        text-align: center;
+        margin-block: var(--space-xs);
+    }
+
+    .big_text{
+        font-size: var(--text-3);
+        grid-column: 1/4;
+        text-align: center;
+        margin-block: var(--space-xs);
+    }
+
+    .small_text{
+        font-size: var(--text-1);
+        grid-column: 1/4;
+        text-align: center;
+        margin-bottom: var(--space-2xl);
+    }
+
+.grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+       margin-inline: auto;
+    }
+
+@media (max-width: 800px) {
+        .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .number{
+        font-size: 70px;
+    }
+}
+
 </style>
+
+          
