@@ -3,10 +3,11 @@ import "../styles/global.css";
 ---
 
 
-    <form action="">
+    <form id="newsform">
         <input type="email" name="email" id="email" required autocomplete="on" placeholder="Write your email*">
-        <input type="submit" id="submit" value="SIGN ME UP!">
+        <button type="submit" id="submit">SIGN ME UP!</button>
     </form>
+    <p id="succes-message">You have been signed up !</p>
 
 
 <style>
@@ -52,31 +53,53 @@ import "../styles/global.css";
         width: 90%;
     }
 
+    #succes-message{
+        display: none;
+    }
+
+    #succes-message.show{
+        display: block;
+    }
+
+
 
 </style>
 
 <script>
+
+   document.getElementById("newsform").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    const data = Object.fromEntries(formData);
+
+    console.log(data);
+
+    fetch("https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/news_sign_up", {
+    method: "POST",
    
-   const form = document.querySelector("form");
-   const submitBTN = document.getElementById("submit");
-   const formData = new FormData (form, submitBTN);
+    headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1em1tbHdwZnVsdmJjaGh6b3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTMyNjgsImV4cCI6MjA0ODM4OTI2OH0.XvH4JaE3egPbv5FstR2ntPAX94NksXLAZoKiN1t-wvw",
+    }, 
+    body: JSON.stringify(data),
+   })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+    })
+    document.getElementById("email").value = '';
 
-   console.log(formData);
+    const succes = document.querySelector("#succes-message");
 
-// fetch("https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/news_sign_up", {
-//   method: "POST",
-//   body: JSON.stringify({
-//     email: ,
-//   }),
-//   headers: {
-//     "Content-type": "application/json; charset=UTF-8",
-//     "x-apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1em1tbHdwZnVsdmJjaGh6b3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTMyNjgsImV4cCI6MjA0ODM4OTI2OH0.XvH4JaE3egPbv5FstR2ntPAX94NksXLAZoKiN1t-wvw",
-//     "cache-control": "no-cache",
-// }
-// })
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
+    succes.classList.add("show");
 
+    setTimeout(()=>{
+        succes.classList.remove("show");
+    }, 3000);
+});
+  
 </script>
 
 
