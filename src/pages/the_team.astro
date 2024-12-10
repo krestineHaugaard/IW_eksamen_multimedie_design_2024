@@ -12,7 +12,7 @@ const data = await fetch ("https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/staf
 ).then((res)=>res.json());
 ---
 
-<Layout>
+<Layout title="The Team">
     <section class="grid">
        <h1>WHO ARE WE?</h1>
        <p class="number">{data.length}</p> 
