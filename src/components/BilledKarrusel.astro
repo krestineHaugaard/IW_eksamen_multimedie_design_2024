@@ -1,9 +1,104 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import slide1 from "../assets/slide_1.jpg";
+import slide2 from "../assets/slide_2.jpg";
+import slide3 from "../assets/slide_3.jpg";
+import slide4 from "../assets/slide_4.jpg";
+import slide5 from "../assets/slide_5.jpg";
+import slide6 from "../assets/slide_6.jpg";
+import slide8 from "../assets/slide_8.jpg";
+import slide9 from "../assets/slide_9.jpg";
+import slide10 from "../assets/slide_10.jpg";
+import slide11 from "../assets/slide_11.jpg";
+import slide12 from "../assets/slide_12.jpg";
+import slide13 from "../assets/slide_13.jpg";
 ---
 
-
+<section class="slide_show_wrapper">
+    <div class="slide_show_container">
+        <div class="image">
+            <Image src={slide1} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide2} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide3} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide4} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide5} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide6} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide8} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide9} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide10} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide11} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide12} alt="Fun and games at the office"/>
+        </div>
+        <div class="image">
+            <Image src={slide13} alt="Fun and games at the office"/>
+        </div>
+    </div>
+</section>
 
 <style>
+
+.slide_show_wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 50rem) 1fr;
+    background-color: var(--section-color);
+    margin-block: 4%;
+  }
+
+.slide_show_container{
+    grid-column: 1/-1;
+    padding-inline: max(1rem, 50% - 50rem / 2);
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: start;
+    > * {
+      flex: 1 0 50%;
+  }
+}
+
+.image{
+    scroll-snap-align: center;
+}
+
+.slide_show_wrapper::before{
+    content: '';
+    background-color: var(--iw-color-blue);
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    margin-top: -5%;
+}
+
+.slide_show_wrapper::after{
+    content: '';
+    background-color: var(--iw-color-orange);
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    margin-bottom: -5%;
+}
 
 </style>
