@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-const {imageSrc, altText, headline, text} = Astro.props;
+const {imageSrc, altText, headline, text, websiteLink, website, steamLink, steam, playstationLink, playstation, trailerLink, trailer} = Astro.props;
 ---
 
 <section class="diagonal">
@@ -8,6 +8,7 @@ const {imageSrc, altText, headline, text} = Astro.props;
     <div class="text_content">
     <h3>{headline}</h3>
     <p>{text}</p>
+    <div class="flex"><a href={websiteLink} >{website}</a><a href={steamLink} >{steam}</a><a href={playstationLink} >{playstation}</a><a href={trailerLink} >{trailer}</a></div>
     </div>
 </section>
 
@@ -55,8 +56,15 @@ const {imageSrc, altText, headline, text} = Astro.props;
     grid-column: 3/4;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+}
+
+.flex{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}
+h3 {
+  margin-bottom: var(--space-xs);
 }
 
 @media (max-width: 800px) {
@@ -67,7 +75,6 @@ const {imageSrc, altText, headline, text} = Astro.props;
 
 .image_content{
     grid-column: 2/3;
-    margin-top: -5%;
     width: 90%;
 }
 
@@ -81,6 +88,7 @@ const {imageSrc, altText, headline, text} = Astro.props;
 
 h3 {
   margin-block: var(--space-xs);
+  text-align: center;
 }
 }
 

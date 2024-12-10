@@ -131,3 +131,7 @@ li::marker {
 .orange {
   color: var(--iw-color-orange);
 }
+
+a:hover {
+  color: var(--iw-color-orange);
+}

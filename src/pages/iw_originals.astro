@@ -6,10 +6,44 @@ import SpilSectionBlue from "../components/SpilSectionBlue.astro";
 ---
 
 <Layout>
-    <SpilSectionOrange imageSrc="/neighbors_suburban_warfare.svg" altText="" headline="Neighbors: Suburban Warfare" text=""/>
-    <SpilSectionBlue imageSrc="" altText="" headline="First Class Trouble" text=""/>
-    <SpilSectionOrange imageSrc="" altText="" headline="Aporia: Beyond The Valley" text=""/>
+    <section class="top_section">
+        <h1>IW originals</h1>
+        <p>Invisible Walls originals bring you outstanding social strategy games. Games that cater not to reflexes alone, but to great social interactions and which are focused on a being as fun to watch as they are to play.</p>
+    </section>
+    <SpilSectionOrange imageSrc="/neighbors_suburban_warfare.svg" altText="Image from the game" headline="Neighbors: Suburban Warfare" text="Grab your garden hose and your golf club! Neighbors: surburban warfare is a multiplayer game with the goal of taking down your nosy neighbor and their “perfect” home. When the battle is over there will be no more loud house parties or lawn moving at 8 pm." websiteLink="" website="Website" steamLink="https://store.steampowered.com/app/1732430/Neighbors_Suburban_Warfare/" steam="Steam" playstationLink="" playstation="" trailerLink="https://www.youtube.com/watch?v=XFdSRFgeo4s" trailer="Trailer"/>
+    <SpilSectionBlue imageSrc="/first_class_trouble.jpg" altText="Image from the game" headline="First Class Trouble" text="First Class Trouble is an multiplayer party game that blends cooperation and deception as players try to figure out who they can trust, while they fight to survive aboard a luxury space cruise-liner that’s had an A.I. uprising." websiteLink="http://firstclasstrouble.com/" website="Website" steamLink="https://store.steampowered.com/app/953880/First_Class_Trouble/" steam="Steam" playstationLink="https://www.playstation.com/games/first-class-trouble/" playstation="Playstation" trailerLink="https://www.youtube.com/watch?v=HlkB7c7BEvw&t=2s" trailer="Trailer"/>
+    <SpilSectionOrange imageSrc="/aporia_beyond_the_valley.jpg" altText="Image from the game" headline="Aporia: Beyond The Valley" text="You awake after hundreds of years of sleep, in an abandoned land and no memory of your past. Immersed in this world of dark beauty, thrilling mystery and ancient puzzles, you embark on a quest to find out what happened in this world, and to discover who you are." websiteLink="http://aporiathegame.com/" website="Website" steamLink="https://store.steampowered.com/app/573130/Aporia_Beyond_The_Valley/" steam="Steam" playstationLink="" playstation="" trailerLink="https://www.youtube.com/watch?v=QGYntByAF3w" trailer="Trailer"/>
 </Layout>
 <style>
+
+    .top_section{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    h1{
+        margin-bottom: var(--space-m);
+        grid-column: 4/8;
+    }
+
+    p{
+        text-align: center;
+        grid-column: 4/8;
+        margin-bottom: var(--space-xs);
+    }
+
+    @media (max-width: 800px) {
+    
+    h1{
+    margin-bottom: var(--space-m);
+    grid-column: 3/9;
+}
+
+p{
+    text-align: center;
+    grid-column: 2/10;
+    margin-bottom: var(--space-xs);
+}
+}
 
 </style>

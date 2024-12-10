@@ -6,9 +6,44 @@ import SpilSectionBlue from "../components/SpilSectionBlue.astro";
 ---
 
 <Layout>
-    <SpilSectionOrange imageSrc="/john_dillermand.jpg" altText="" headline="John Dillermand" text=""/>
-    <SpilSectionBlue imageSrc="" altText="" headline="Novafos VR / Snapchat / Mobile game" text=""/>
+    <section class="top_section">
+        <h1>IW studio</h1>
+        <p>At IW Studio we work with external IPs. As a team we can offer years of experience making games, working with AR and VR, mobile, and other interactive experiences. We offer a wide range of fine-tuned skills spanning world building, gamification, 3D (hard and soft), visual effects, programming, video and much more.</p>
+        <p>If you have a project that you want us to work on please reach out <span class="orange">info@invisiblewalls.co</span></p>
+    </section>
+    <SpilSectionOrange imageSrc="/john_dillermand.jpg" altText="Image from the game" headline="John Dillermand" text="An animated comedy about being brave and being yourself. It's really difficult to be different, embarrassing actually. But maybe it's not so bad if you dare to stand by your mistakes. Invisible Walls is producing the mobile game for this fantastic children's franchice. In collaboration with the Danish Broadcasting Corporation and MadeByUs." websiteLink="" website="" steamLink="" steam="" playstationLink="" playstation="" trailerLink="" trailer=""/>
+    <SpilSectionBlue imageSrc="/novafos.jpg" altText="Image from the game" headline="Novafos VR / Snapchat / Mobile game" text="Novafos is the one of Denmarks biggest providers of clean water and water recycling. We worked with them to produce a series of interactive products (mobile game, snapchat filters and VR movie) as part of their educational branch. Most notably we made a high quality 360 VR movie and delivered an on location VR cinema experience." websiteLink="https://novafos.dk/besoeg-vores-renseanlaeg-vandvaerker" website="Website" steamLink="" steam="" playstationLink="" playstation="" trailerLink="https://www.youtube.com/watch?v=89d_ny3qpmc&t=1s" trailer="See the VR Movie"/>
 </Layout>
 <style>
+
+.top_section{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    h1{
+        margin-bottom: var(--space-m);
+        grid-column: 4/8;
+    }
+
+    p{
+        text-align: center;
+        grid-column: 4/8;
+        margin-bottom: var(--space-xs);
+    }
+
+    @media (max-width: 800px) {
+    
+        h1{
+        margin-bottom: var(--space-m);
+        grid-column: 3/9;
+    }
+
+    p{
+        text-align: center;
+        grid-column: 2/10;
+        margin-bottom: var(--space-xs);
+    }
+}
 
 </style>
