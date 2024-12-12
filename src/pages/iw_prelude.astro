@@ -1,11 +1,86 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import PreludeSignUp from "../components/PreludeSignUp.astro";
 ---
 
 <Layout title="IW Prelude">
-
+<section class="prelude">
+    <div class="left_content">
+    <div class="content">
+        <h1>IW Prelude</h1>
+        <p class="cursive">Join the Program and have more fun.</p>
+        <p>An exclusive program that will grant you access to new stuff ahead of everyone else. So if you are a fan, ambassador, content creator - or just have a dream of one day being one - this program is for you. Members of IW Prelude will receive exclusive in-game items and may get some real life swag as well.</p>
+        <p>Furthermore as part of the program you may be eligible to join our FCT testing program, get access to play and stream our future games before anyone else and take part in special online and offline events for FCT and future games.</p>
+    </div>
+    </div>
+    <div class="right_content">
+        <PreludeSignUp/>
+    </div>
+</section>
 </Layout>
 <style>
+
+.prelude{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: var(--space-xl);
+}
+
+.left_content{
+    background-color: var(--iw-color-blue);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: var(--space-3xl);
+}
+
+.content{
+    max-width: 65ch;
+}
+
+.right_content{
+    place-self: start;
+    padding: var(--space-3xl);
+}
+
+h1, p{
+    color: var(--iw-color-black);
+}
+
+h1{
+    justify-self: start;
+    margin-bottom: var(--space-s);
+}
+
+.cursive{
+    font-size: var(--text-1);
+    font-style: italic;
+    margin-bottom: var(--space-l);
+}
+
+@media (max-width: 800px) {
+.prelude{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-block: var(--space-xs);
+   
+}
+
+.right_content{
+    place-self: center;
+    padding: var(--space-2xl);
+}
+
+.left_content{
+    justify-content: center;
+    padding: var(--space-2xl);
+}
+
+h1{
+    justify-self: center;
+}
+
+}
 
 </style>

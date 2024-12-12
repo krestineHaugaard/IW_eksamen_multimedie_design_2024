@@ -2,8 +2,122 @@
 import "../styles/global.css";
 ---
 
-
+<h4>Lets Get Started</h4>
+<form>
+    <div class="form_field">
+        <label for="name">Name/Username <span class="orange">*</span></label>
+        <input type="text" name="name" id="name" required autocomplete="on">
+    </div>
+    <div class="form_field">
+        <label for="email">Email <span class="orange">*</span></label>
+        <input type="email" name="email" id="email" required autocomplete="on">
+    </div>
+    <div class="form_field">
+        <label for="primary_creator_platform">Primary Creator Platform <span class="orange">*</span></label>
+        <input type="text" name="primary_creator_platform" id="primary_creator_platform" required placeholder="Enter “None” if not applicable">
+    </div>
+    <div class="form_field">
+        <label for="primary_platform_link">Primary Platform Link</label>
+        <input type="text" name="primary_platform_link" id="primary_platform_link" placeholder="Leave empty if not applicable">
+    </div>
+    <div class="form_field">
+        <label for="user_interest">Why are you interested in the IW Prelude program? <span class="orange">*</span></label>
+        <textarea id="user_interest" required maxlength="250"/>
+        <p id="chars_count">0 / 250 </p>
+    </div>
+    <button type="submit">SIGN ME UP!</button>
+</form>
 
 <style>
 
+    form{
+        display: grid;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .form_field{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #chars_count{
+        text-align: end;
+        margin-top: 0;
+        margin-bottom: var(--space-xs);
+    }
+
+    label{
+        font-style: italic;
+        font-weight: 700;
+    }
+
+    input, textarea{
+        background-color: var(--iw-color-white);
+        max-width: 400px;
+        box-shadow: 4px 5px var(--iw-color-orange);
+        border-radius: 3px;
+        padding: 10px;
+    }
+
+    input:focus, textarea:focus{
+        outline: none;
+        box-shadow: 3px 4px var(--iw-color-blue);
+    }
+
+    input:user-valid, textarea:user-valid{
+        box-shadow: 3px 4px #2cff72;
+    }
+
+    input:focus:user-invalid, textarea:user-invalid{
+        box-shadow: 3px 4px #ff412c;
+    }
+
+    button{
+        background-color: var(--iw-color-blue);
+        padding-block: 15px;
+        padding-inline: 40px;
+        border-radius: 3px;
+        box-shadow: inset 4px 6px 0px var(--iw-color-white), 3px 2px 0px 6px var(--iw-color-orange);
+        color: var(--iw-color-black);
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: "Atma", system-ui;
+        font-weight: 700;
+        font-style: normal;
+        text-shadow: 1px 2px var(--iw-color-orange);
+        letter-spacing: 2px;
+        text-decoration: none;   
+        text-align: center;
+        margin-block: var(--space-m);
+        justify-self: center;
+    }
+
+    button:hover{
+        background-color: var(--iw-color-white);
+        box-shadow: inset 4px 6px 0px var(--iw-color-blue), 3px 2px 0px 6px var(--iw-color-orange);
+    }
+
+    button:active{
+        background-color: var(--iw-color-blue);
+        box-shadow: inset 4px 6px 0px var(--iw-color-white), 3px 2px 0px 8px var(--iw-color-orange);
+    }
+
+    h4{
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
 </style>
+
+<script>
+    const textArea = document.getElementById("user_interest");
+    const charsAmount = document.getElementById("chars_count");
+
+    textArea.addEventListener("input", ()=>{
+        const amount = textArea.value.length;
+        charsAmount.textContent = `${amount} / 250`;
+    })
+   
+</script>
