@@ -3,7 +3,7 @@ import "../styles/global.css";
 ---
 
 <h4>Lets Get Started</h4>
-<form>
+<form id="prelude_form">
     <div class="form_field">
         <label for="name">Name/Username <span class="orange">*</span></label>
         <input type="text" name="name" id="name" required autocomplete="on">
@@ -22,11 +22,12 @@ import "../styles/global.css";
     </div>
     <div class="form_field">
         <label for="user_interest">Why are you interested in the IW Prelude program? <span class="orange">*</span></label>
-        <textarea id="user_interest" required maxlength="250"/>
+        <textarea name="user_interest" id="user_interest" required maxlength="250"/>
         <p id="chars_count">0 / 250 </p>
     </div>
-    <button type="submit">SIGN ME UP!</button>
+    <button type="submit" id="submit">SIGN ME UP!</button>
 </form>
+<p id="succes-message">You have been signed up !</p>
 
 <style>
 
@@ -109,6 +110,15 @@ import "../styles/global.css";
         margin-bottom: var(--space-xl);
     }
 
+    #succes-message{
+        display: none;
+        text-align: center;
+    }
+
+    #succes-message.show{
+        display: block;
+    }
+
 </style>
 
 <script>
@@ -119,5 +129,40 @@ import "../styles/global.css";
         const amount = textArea.value.length;
         charsAmount.textContent = `${amount} / 250`;
     })
+
+    document.getElementById("prelude_form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    const data = Object.fromEntries(formData);
+
+    console.log(data);
+
+    fetch("https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/prelude_sign_up", {
+    method: "POST",
+   
+    headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1em1tbHdwZnVsdmJjaGh6b3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTMyNjgsImV4cCI6MjA0ODM4OTI2OH0.XvH4JaE3egPbv5FstR2ntPAX94NksXLAZoKiN1t-wvw",
+    }, 
+    body: JSON.stringify(data),
+   })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+    })
+
+    document.getElementById("prelude_form").reset();
+
+    const succes = document.querySelector("#succes-message");
+
+    succes.classList.add("show");
+
+    setTimeout(()=>{
+        succes.classList.remove("show");
+    }, 3000);
+});
+  
    
 </script>
