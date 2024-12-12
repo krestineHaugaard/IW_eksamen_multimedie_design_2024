@@ -1,11 +1,41 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
 ---
 
 <Layout title="IW Blog">
-
+    <section class="blog_section">
+        <div class="grid_placement section_1 active">
+            <BlogPostCard blogImage="/looking_back_on_first_class_trouble.jpg" imageAlt="A reserved table from First Class Trouble" blogDate="Jun 14, 2022" headline="Looking back at First Class Trouble" text="It's been over a year since First Class Trouble launched in Early Access, but the team has been at work for over three years to bring..."/>
+        </div>
+        <div class="grid_placement section_2">
+            <BlogPostCard/>
+        </div>
+    </section>
 </Layout>
 <style>
+
+    .blog_section{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .grid_placement{
+        grid-column: 2;
+        display: none;
+    }
+
+    .active{
+        display: block;
+    }
+
+    @media (max-width: 800px) {
+        .blog_section{
+        display: grid;
+        grid-template-columns: 30px 1fr 30px;
+    }
+
+    }
 
 </style>
