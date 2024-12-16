@@ -132,6 +132,11 @@ li::marker {
   color: var(--iw-color-orange);
 }
 
+.enabled {
+  color: var(--iw-color-orange);
+  text-decoration: line-through;
+}
+
 a:hover {
   color: var(--iw-color-orange);
 }
