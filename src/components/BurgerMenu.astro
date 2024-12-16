@@ -2,8 +2,90 @@
 import "../styles/global.css";
 ---
 
-
+<div class="burger_menu">
+    <div class="burger_line line_1"></div>
+    <div class="burger_line line_2"></div>
+    <div class="burger_line line_3"></div>
+</div>
+<div class="drop_down_menu">
+    <a href="/iw_originals" class="iw_originals">IW Originals</a>
+    <a href="/iw_studio" class="iw_studio">IW Studio</a>
+    <a href="/blog" class="blog">Blog</a>
+    <a href="/iw_prelude" class="iw_prelude">IW Prelude</a>
+    <a href="/the_team" class="the_team">The Team</a>
+</div>
 
 <style>
 
+    .burger_menu{
+        display: none;
+        cursor: pointer;
+    }
+
+    .burger_line{
+        background-color: var(--icon-color);
+        height: 3px;
+        width: 30px;
+        margin: 5px;
+        border-radius: 100px;
+    }
+
+    .line_1.active{
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .line_2.active{
+        display: none;
+    }
+
+    .line_3.active{
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .drop_down_menu{
+        display:none;
+    }
+    
+    .drop_down_menu.active{
+        background-color: var(--section-color);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 115px;
+        left: 20px;
+        right: 20px;
+        align-items: center;
+        box-shadow: -4px 2px 0px 8px var(--iw-color-orange);
+        border-radius: 5px;
+    }
+
+    a{
+    text-decoration: none;
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+    margin-block: var(--space-xs);
+}
+
+
+    @media (max-width: 800px) {
+    
+        .burger_menu{
+        display: block;
+    }
+
+}
 </style>
+
+<script>
+    const burgerMenu = document.querySelector(".burger_menu");
+
+    burgerMenu.addEventListener("click", ()=>{
+        document.querySelector(".line_1").classList.toggle("active");
+        document.querySelector(".line_2").classList.toggle("active");
+        document.querySelector(".line_3").classList.toggle("active");
+        document.querySelector(".drop_down_menu").classList.toggle("active");
+    })
+
+</script>

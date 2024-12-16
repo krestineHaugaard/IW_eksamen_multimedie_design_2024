@@ -21,8 +21,7 @@ import BilledKarrusel from "../components/BilledKarrusel.astro";
         <div class="flex">
         <Image src={bigLogoDark} alt="Invisible Walls logo" class="big_logo_dark"/>
         <Image src={bigLogoLight} alt="Invisible Walls logo" class="big_logo_light"/>
-        <p>
-            Is the award winning studio behind First Class Trouble and Aporia: Beyond the Valley. Our focus is creating social strategy games, where social interaction is core to the experience - and games that are as fun to watch as they are to play.</p>
+        <p>Is the award winning studio behind First Class Trouble and Aporia: Beyond the Valley. Our focus is creating social strategy games, where social interaction is core to the experience - and games that are as fun to watch as they are to play.</p>
         <Button btnlink="/the_team" btntext="meet the team" />
         </div>
         <Image src={maryFighting} alt="game character mary" class="mary"/>
@@ -122,6 +121,33 @@ import BilledKarrusel from "../components/BilledKarrusel.astro";
         grid-column: 5/11;
         grid-row: 3;
         margin-top: var(--space-xl);
+    }
+
+    .flex{
+        grid-column: 3/9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-xs)
+    }
+
+    p{
+        text-align: center;
+        width: 35ch;
+    }
+
+    .kim{
+        grid-column: 1/5;
+        width: 100%;
+        margin-top: 20%;
+        margin-bottom: -50%;
+    }
+
+    .mary{
+        grid-column: 8/11;
+        grid-row: 3;
+        margin-top: -80%;
+        width: 100%;
     }
 
     }

@@ -9,7 +9,7 @@ import footerGroup from "../assets/footer_group.svg"
 ---
 
 <footer>
-    <Image src={chickenStanding} alt="Invisible Walls logo" class="chicken_standing"/>
+    <Image src={chickenStanding} alt="Chicken" class="chicken_standing"/>
     <section class="footer_section">
         <p>A PROUD PART OF THE AMPLIFIER GAME INVEST AND THE EMBRACER FAMILY</p>
         <FooterLogoBar/>
@@ -17,8 +17,8 @@ import footerGroup from "../assets/footer_group.svg"
         <p class="address"><span>Frederiksberggade 28, 2.th</span><span>1459 Copenhagen K</span><span>Denmark</span></p>
         <div class="flex"><p>©2022 by Invisible Walls</p><p>info@invisiblewalls.co</p><a href="/privacy_policy/">Privacy Policy</a></div>
     </section>
-    <Image src={chickenRunning} alt="Invisible Walls logo" class="chicken_running"/>
-    <Image src={footerGroup} alt="Invisible Walls logo" class="footer_image"/>
+    <Image src={chickenRunning} alt="Chicken" class="chicken_running"/>
+    <Image src={footerGroup} alt="White fence and a sleeping Le loi" class="footer_image"/>
 
 </footer>
 
@@ -73,5 +73,33 @@ import footerGroup from "../assets/footer_group.svg"
         font-size: 12px;
         margin-block: 10px;
     }
+
+    @media (max-width: 800px) {
+    
+        .flex{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        gap:10px;
+    }
+        .chicken_standing{
+        grid-column: 2;
+        margin-bottom: -50%;
+        width: 80%;
+        z-index: 2;
+    }
+
+    .chicken_running{
+        grid-column: 7;
+        margin-top: -130%;
+        width: 100%;
+    }
+
+    p{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+}
 
 </style>

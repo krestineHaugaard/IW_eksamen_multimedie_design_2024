@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import smallLogoDark from "../assets/small_logo_dark_text.svg"
 import smallLogoLight from "../assets/small_logo_light_text.svg"
 import LightDarkModeButton from "./LightDarkModeButton.astro";
+import BurgerMenu from "./BurgerMenu.astro";
 ---
 
 <div class="nav_links">
@@ -14,7 +15,10 @@ import LightDarkModeButton from "./LightDarkModeButton.astro";
     <a href="/blog" class="blog">Blog</a>
     <a href="/iw_prelude" class="iw_prelude">IW Prelude</a>
     <a href="/the_team" class="the_team">The Team</a>
-    <LightDarkModeButton/>
+    <div class="light_dark_button_and_burger_menu">
+        <LightDarkModeButton/>
+        <BurgerMenu/>
+    </div>
 </div>
 
 <style>
@@ -23,6 +27,12 @@ import LightDarkModeButton from "./LightDarkModeButton.astro";
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.light_dark_button_and_burger_menu{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 a{
@@ -58,6 +68,14 @@ a:hover{
     :global(.dark) .small_logo_dark{
         display: none;
     }
+
+    @media (max-width: 800px) {
+  
+        .iw_originals, .iw_studio, .blog, .iw_prelude, .the_team{
+            display: none;
+        }
+
+}
 
 </style>
 
