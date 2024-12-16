@@ -102,12 +102,12 @@ h3 {
 }
 
 h4 {
-  font-size: var(--text-1);
+  font-size: var(--text-0);
   font-family: "Atma", system-ui;
   font-weight: 700;
   font-style: normal;
-  text-shadow: 2px 2px var(--iw-color-orange);
-  letter-spacing: 2px;
+  text-shadow: 1.5px 1px var(--iw-color-orange);
+  letter-spacing: 1px;
   margin-top: var(--space-s);
 }
 
