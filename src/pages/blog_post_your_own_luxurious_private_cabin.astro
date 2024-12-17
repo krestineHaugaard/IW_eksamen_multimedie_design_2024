@@ -6,11 +6,25 @@ import Blog_layout from "../layouts/Blog_layout.astro";
 
 <Layout>
 <Blog_layout>
-    <h1>Looking back on First Class Trouble</h1>
-    <p>It's been over a year since First Class Trouble launched in Early Access, but the team has been at work for over three years to bring this game to all of you. There's a lot that can happen over that length of time. Since you've all shared your experiences with us we wanted to share some of our memories with you. We asked the team about some of their fondest memories over the last three years, and here's what they had to say.</p>
-    <h4 class="headline">From The Captain</h4>
-    <p>I have so many fond memories. I remember not being able to go to sleep at night for the first few months after release of Early Access, because I was quite excited that so many people were playing and wanted to provide feedback that I stayed up and talked to a lot of people on Discord - and getting to know a lot of new really cool people. Or getting up at 2 pm to see Valkyrae stream to 500.000 people on YouTube. I didn’t feel exhausted at all for some time, because it was an adrenaline rush to see your art, your work and all the team’s extremely hard work being taken serious and enjoyed by everyone. Some of the best memories I have is when our game impacted lives in more substantial ways than just entertaining. One of those were when I was making a video and interviewing some players and someone said that First Class Trouble made you make new friends. That got me excited. Or when Adrianna and Henry got married after meeting in First Class Trouble. What’s more powerful than bringing people together to have fun, to enjoy themselves, to make new friends and to find love. Nothing really.</p>
-    <p class="cursive">- Niels A. Wetterberg</p>
+    <h1>Your own luxurious private cabin</h1>
+    <p>In Cainwood, each round will start out in your own private custom made space cruise cabin. Each player will have control over their own decor and style, which will express themselves as a player.</p>
+    <p>The goal is to provide customizable options with a alternative mid-century modern style with a twist of contempory nordic design interior classics.</p>
+    <p>Below you can see the interior as sketched out by our art director Andreas Bech.</p>
+    <img src="/your_own_luxurious_private_cabin.jpg" alt="Image from the game">
+    <p>On the following image you can see that we did not end up far away from the intended goal in terms of implementation. Of course this is still a work in progress, but it does showcase the direction that we wish to push the overall artstyle dictated by the interior design and overarching setting.</p>
+    <img src="/cabin.jpg" alt="Image from the game">
+    <p>Check out the gallery below to see a extended look at the implemented result in Unreal Engine.</p>
+    <div class="galleri">
+      <img src="/galleri_9.jpg" alt="image from the game">
+      <img src="/galleri_10.jpg" alt="image from the game">
+      <img src="/galleri_11.jpg" alt="image from the game">
+      <img src="/galleri_12.jpg" alt="image from the game">
+      <img src="/galleri_13.jpg" alt="image from the game">
+      <img src="/galleri_14.jpg" alt="image from the game">
+    </div>
+    <p>We hope you enjoyed the little sneak peak at one of the few rooms that you will traverse aboard the space cruise ship.</p>
+    <p class="cursive">- Invisible Walls</p>
+    <p class="orange">#UnrealEngine #cainwood</p>
 </Blog_layout>
 </Layout>
 
@@ -37,6 +51,12 @@ h1{
   font-style: italic;
   letter-spacing: 1px;
   margin-top: var(--space-s);
+}
+
+.galleri{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 @media (max-width: 800px) {
