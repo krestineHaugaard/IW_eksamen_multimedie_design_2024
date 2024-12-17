@@ -4,13 +4,23 @@ import Layout from "../layouts/Layout.astro";
 import Blog_layout from "../layouts/Blog_layout.astro";
 ---
 
-<Layout>
+<Layout title="Snow in Cainwood">
 <Blog_layout>
-    <h1>Looking back on First Class Trouble</h1>
-    <p>It's been over a year since First Class Trouble launched in Early Access, but the team has been at work for over three years to bring this game to all of you. There's a lot that can happen over that length of time. Since you've all shared your experiences with us we wanted to share some of our memories with you. We asked the team about some of their fondest memories over the last three years, and here's what they had to say.</p>
-    <h4 class="headline">From The Captain</h4>
-    <p>I have so many fond memories. I remember not being able to go to sleep at night for the first few months after release of Early Access, because I was quite excited that so many people were playing and wanted to provide feedback that I stayed up and talked to a lot of people on Discord - and getting to know a lot of new really cool people. Or getting up at 2 pm to see Valkyrae stream to 500.000 people on YouTube. I didn’t feel exhausted at all for some time, because it was an adrenaline rush to see your art, your work and all the team’s extremely hard work being taken serious and enjoyed by everyone. Some of the best memories I have is when our game impacted lives in more substantial ways than just entertaining. One of those were when I was making a video and interviewing some players and someone said that First Class Trouble made you make new friends. That got me excited. Or when Adrianna and Henry got married after meeting in First Class Trouble. What’s more powerful than bringing people together to have fun, to enjoy themselves, to make new friends and to find love. Nothing really.</p>
-    <p class="cursive">- Niels A. Wetterberg</p>
+    <h1>Snow in Cainwood</h1>
+    <h4 class="headline">The snow has fallen in Cainwood</h4>
+    <p>The development of the game is slowly chugging along and in this development update we have chosen to focus on snow and the different mechanics that snow could bring to the game.</p>
+    <img src="/snow_in_cainwood.jpg" alt="image from the game">
+    <p>Why snow though? Quite early on we were intrigued by the concept of placing our game in a snowy setting purely from an artistic setting approach. Very much inspired by movies such as "The Thing" and the beatiful eerie winter landscapes of Sweden as drawn by Simon Stålenhag. As the time went on the idea festered and we began to see all the things that the snow could bring to the game, not just visually, but in genuine game mechanics. For example snow allows us to add in footsteps in the snow, which people could use to track or misguide each other. You can have blizzards, which dissorient the players plays with the sense of direction.</p>
+    <h4 class="headline">Implementation of the snow</h4>
+    <p>The snow is done through the use of a tesselation modifier added to the terrain of levels. The "footsteps" are created by checking the player position with the terrain and altering the localized tesselation accordingly. Below is a short preview of the system in action - all very much a work in progress.</p>
+    <img src="/cainwood_gif.gif" alt="Gif of game content">
+    <p>The problem with this way of doing things is that it adds a lot of computing to tesselate the landscape. Therefore as you hint on the below image then the tesselation increases the closer to the camera you get.</p>
+    <p>As can also be seen is the work that is being put into our particle systems and creating falling snow that will gradually fill up those pesky footsteps in the snow.</p>
+    <img src="/cainwood_grid.jpg" alt="3D grid from the making of the game">
+    <p>Lastly, we are prototyping on adding different buildings to the game. We are creating different versions to test how it feels like with large indoor environments, many small environments og keeping the game mostly outside.</p>
+    <img src="/3d_model.jpg" alt="3D model of a cabin in the game">
+    <p>Thanks for tuning into our development blog. Remember that everything is all very much a work-in-progress and does not resemble the final product. Much of what we have chosen to showcase is our journey through the development of the game and we hope that you will enjoy the ride.</p>
+    <p class="cursive">- The Invisible Walls team</p>
 </Blog_layout>
 </Layout>
 
