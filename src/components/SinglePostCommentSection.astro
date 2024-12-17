@@ -1,9 +1,115 @@
 ---
 import "../styles/global.css";
+var {blogPostID} = Astro.props;
 ---
 
+<section class="comment_section">
+    <div>
+        <h3>Comments</h3>
+        <div class="comment_list"></div>
+    </div>
 
+<form class="comment_form">
+    <input type="text" name="blog_comments" id="comment_text" placeholder="Write a comment..."/>
+</form>
+</section>
 
 <style>
 
+    svg{
+        fill: var(--iw-color-orange);
+    }
+
+    .unliked{
+        display:none;
+    }
+
+    .liked{
+        display:none;
+    }
+
+    .active{
+        display: block;
+    }
+
+    .comment{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: var(--text-0);
+         font-weight: 500;
+        margin-bottom: var(--space-m);
+        margin-top: var(--space-s);
+    }
+
 </style>
+
+<script is:inline define:vars={{blogPostID}}>
+    const blogID = `${blogPostID}`;
+    const commentInput = document.getElementById("comment_text");
+    const commentsList = document.querySelector(".comment_list");
+    const commentForm = document.querySelector(".comment_form");
+
+    const SUPABASE_URL = "https://wuzmmlwpfulvbchhzozo.supabase.co/rest/v1/blog_comments";
+    const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1em1tbHdwZnVsdmJjaGh6b3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTMyNjgsImV4cCI6MjA0ODM4OTI2OH0.XvH4JaE3egPbv5FstR2ntPAX94NksXLAZoKiN1t-wvw";
+
+    async function fetchComments() {
+        const response = await fetch(`${SUPABASE_URL}?blog_post_id=eq.${blogID}`, {
+        headers: {
+            'apikey': SUPABASE_API_KEY,
+            'Content-Type': 'application/json',
+        }
+        });
+
+    const commentsData = await response.json();
+
+    if (response.ok) {
+      commentsList.innerHTML = "";
+      commentsData.forEach(comment => {
+        const commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment");
+        commentDiv.innerHTML = `<p>${comment.comment_text}</p>`;
+        commentsList.appendChild(commentDiv);
+      });
+    } else {
+      console.error("Error fetching comments:", data);
+    }
+  }
+
+  async function addComment(commentText) {
+    const response = await fetch(`${SUPABASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([
+        {
+          blog_post_id: blogID,
+          comment_text: commentText,
+        }
+      ])
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        fetchComments(); // Refresh the comment list after adding
+    } else {
+      console.error("Error adding comment:", data);
+    }
+  }
+
+  commentForm.addEventListener("submit", (event) => {
+    event.preventDefault(); 
+
+    const commentText = commentInput.value;
+    if (commentText) {
+      addComment(commentText); 
+      commentInput.value = ""; 
+      location.reload();
+    }
+  });
+
+  fetchComments();
+
+</script>
