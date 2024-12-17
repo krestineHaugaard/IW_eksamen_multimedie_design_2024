@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Blog_layout from "../layouts/Blog_layout.astro";
+import SinglePostCommentSection from "../components/SinglePostCommentSection.astro";
 ---
 
 <Layout title="Snow in Cainwood">
@@ -21,6 +22,7 @@ import Blog_layout from "../layouts/Blog_layout.astro";
     <img src="/3d_model.jpg" alt="3D model of a cabin in the game">
     <p>Thanks for tuning into our development blog. Remember that everything is all very much a work-in-progress and does not resemble the final product. Much of what we have chosen to showcase is our journey through the development of the game and we hope that you will enjoy the ride.</p>
     <p class="cursive">- The Invisible Walls team</p>
+    <SinglePostCommentSection blogPostID="snow_in_cainwood"/>
 </Blog_layout>
 </Layout>
 

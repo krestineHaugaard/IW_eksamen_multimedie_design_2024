@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Blog_layout from "../layouts/Blog_layout.astro";
+import SinglePostCommentSection from "../components/SinglePostCommentSection.astro";
 ---
 
 <Layout title="Developer Blog">
@@ -18,6 +19,7 @@ import Blog_layout from "../layouts/Blog_layout.astro";
     <p>2018 is certainly starting our with a lot of excitement in the entire office and we can't wait to see what the future will bring.</p>
     <p>We all wish you a warm and cozy winter around the world.</p>
     <p class="cursive">- The whole team at Invisible Walls</p>
+    <SinglePostCommentSection blogPostID="welcome_to_the_development_blog_of_invisible_walls"/>
   </Blog_layout>
 </Layout>
 

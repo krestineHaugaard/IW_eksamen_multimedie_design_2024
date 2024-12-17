@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Blog_layout from "../layouts/Blog_layout.astro";
+import SinglePostCommentSection from "../components/SinglePostCommentSection.astro";
 ---
 
 <Layout title="At GDC">
@@ -21,6 +22,7 @@ import Blog_layout from "../layouts/Blog_layout.astro";
       <img src="/galleri_8.jpg" alt="Our time in San francisco">
     </div>
     <p class="orange">#ProjectCainwood #cainwood #gdc</p>
+    <SinglePostCommentSection blogPostID="invisible_walls_at_gdc"/>
 </Blog_layout>
 </Layout>
 
