@@ -82,5 +82,8 @@ a:hover{
 <script is:inline>
     const path = location.pathname.replace("/", "");
     document.querySelector(`.${path}`).classList.add("active");
+
+    // Denne kode virker når jeg kører NPM run dev, men dsv ikke efter deploy til Netlify
+    // Jeg vil gerne prøve at se om jeg kan få det til at virke og fremvise det til eksamen, men for nu må jeg lade det ligge
     
 </script>
